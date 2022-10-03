@@ -14,6 +14,12 @@ const DRINK = require('./routes/coffeDrink');
 const GIFTCARD  = require('./routes/giftCardsRoutes')
 const MUGS  = require('./routes/mugsRoutes')
 
+var coffeByKilo = require('./routes/coffeKiloRouter')
+var coffeMachine = require('./routes/coffeeMaRouter.js')
+var filters = require('./routes/FiltersRouter')
+var kits = require('./routes/kitsRouter')
+
+
 var app = express();
 
 // view engine setup
@@ -28,6 +34,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/coffee-kilogram', coffeByKilo)
+app.use('/coffee-machine', coffeMachine)
+app.use('/coffee-filters', filters)
+app.use('/kits', kits)
 
 // Routes for DOT COFFE
 app.use('/auth', USER)
