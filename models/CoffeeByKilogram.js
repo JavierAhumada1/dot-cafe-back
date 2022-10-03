@@ -6,7 +6,8 @@ const schema = new mongoose.Schema({
   presentation: {type : String, require: true},
   type: {type : String, require: true},
   weight: {type: Number, require: true},
-  roastingLevels: {type:String, require: true}
+  roastingLevels: {type:String, require: true},
+  stock: {type:Number, require: true},
 })
 
 const CoffeByKilogram = mongoose.model(
