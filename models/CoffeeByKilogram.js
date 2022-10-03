@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const schema = new mongoose.Schema({
+  name: {type: String, require: true},
   photo: {type: String, require: true},
   origin: {type: String, require: true},
   presentation: {type : String, require: true},
