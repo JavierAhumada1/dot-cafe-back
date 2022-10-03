@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 
-
 const schema = new mongoose.Schema({
     name: {type: String, require: true},
     photo: {type: String, require: true},
@@ -10,7 +9,7 @@ const schema = new mongoose.Schema({
 })
 
 const CoffeMachines = mongoose.model(
-    'CoffeMachines',
+    'coffemachines',
     schema
 )
 
