@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
   origin: {type: String, require: true},
   presentation: {type : String, require: true},
   type: {type : String, require: true},
-  weight: {type: String, require: true},
+  weight: {type: Number, require: true},
   roastingLevels: {type:String, require: true}
 })
 
