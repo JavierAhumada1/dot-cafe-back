@@ -9,6 +9,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const USER = require('./routes/usersRoutes');
+const DRINK = require('./routes/coffeDrink');
+const GIFTCARD  = require('./routes/giftCardsRoutes')
+const MUGS  = require('./routes/mugsRoutes')
 
 var app = express();
 
@@ -24,6 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+// Routes for DOT COFFE
+app.use('/auth', USER)
+app.use('/coffe', DRINK)
+app.use('/giftcard', GIFTCARD)
+app.use('/mugs', MUGS)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
