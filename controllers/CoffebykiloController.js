@@ -18,3 +18,5 @@ const ByKilogram = {
         }
     }
 }
+
+module.exports = ByKilogram
