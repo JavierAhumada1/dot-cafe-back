@@ -11,9 +11,9 @@ const schema = new mongoose.Schema({
     description: { type: String },
 })
 
-const COFFEDRINKMODEL = mongoose.model(
-    'coffeForDrink',
+const COFFEEDRINKMODEL = mongoose.model(
+    'coffeeForDrink',
     schema
 )
 
-module.exports = COFFEDRINKMODEL
+module.exports = COFFEEDRINKMODEL

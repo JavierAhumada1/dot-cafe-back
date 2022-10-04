@@ -1,10 +1,10 @@
 const { query } = require('express')
-const CoffeMug = require('../models/coffeMug')
+const CoffeeMug = require('../models/coffeeMug')
 
-const coffeMugController = {
+const coffeeMugController = {
     create:async (req, res) => {
         try {
-            let mugs = await new CoffeMug(req.body).save()
+            let mugs = await new CoffeeMug(req.body).save()
 
             res.status(201).json({
                 message: 'mugs Has Been Created',
@@ -28,12 +28,12 @@ const coffeMugController = {
         }
         try {
             if (query.mugName) {
-                allMugs = await CoffeMug.find({brand: new RegExp("^" + req.query.mugName.toLowerCase(), "i") })
+                allMugs = await CoffeeMug.find({brand: new RegExp("^" + req.query.mugName.toLowerCase(), "i") })
             } else {
-                allMugs = await CoffeMug.find()
+                allMugs = await CoffeeMug.find()
             }
             res.status(200).json({
-                message: "Coffe Mugs Founds",
+                message: "Coffee Mugs Founds",
                 response: allMugs,
                 success: true
             })
@@ -48,9 +48,9 @@ const coffeMugController = {
         const stock = req.body
 
         try {
-            let mugForSale = await CoffeMug.findOne({ _id: id})
+            let mugForSale = await CoffeeMug.findOne({ _id: id})
             if(mugForSale) {
-                await CoffeMug.findByIdAndUpdate(id, stock)
+                await CoffeeMug.findByIdAndUpdate(id, stock)
                 res.status(200).json({
                     message: 'Stock has been update',
                     success: true
@@ -72,4 +72,4 @@ const coffeMugController = {
     }
 }
 
-module.exports = coffeMugController
+module.exports = coffeeMugController

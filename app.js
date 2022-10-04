@@ -10,12 +10,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const USER = require('./routes/usersRoutes');
-const DRINK = require('./routes/coffeDrink');
+const DRINK = require('./routes/coffeeDrink');
 const GIFTCARD  = require('./routes/giftCardsRoutes')
 const MUGS  = require('./routes/mugsRoutes')
 
-var coffeByKilo = require('./routes/coffeKiloRouter')
-var coffeMachine = require('./routes/coffeeMaRouter.js')
+var coffeeByKilo = require('./routes/coffeeKiloRouter')
+var coffeeMachine = require('./routes/coffeeMaRouter.js')
 var filters = require('./routes/FiltersRouter')
 var kits = require('./routes/kitsRouter')
 
@@ -34,14 +34,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/coffee-kilogram', coffeByKilo)
-app.use('/coffee-machine', coffeMachine)
+app.use('/coffee-kilogram', coffeeByKilo)
+app.use('/coffee-machine', coffeeMachine)
 app.use('/coffee-filters', filters)
 app.use('/kits', kits)
 
-// Routes for DOT COFFE
+// Routes for DOT COFFEE
 app.use('/auth', USER)
-app.use('/coffe', DRINK)
+app.use('/coffee', DRINK)
 app.use('/giftcard', GIFTCARD)
 app.use('/mugs', MUGS)
 

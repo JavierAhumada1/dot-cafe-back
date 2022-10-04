@@ -1,16 +1,16 @@
 const { query } = require('express')
-const CoffeForDrink = require('../models/coffeForDrink')
+const CoffeeForDrink = require('../models/coffeForDrink')
 
-const coffeForDrinkController = {
+const coffeeForDrinkController = {
     create:async (req, res) => {
         try {
-            let coffeForDrink = await new CoffeForDrink(req.body).save()
+            let coffeeForDrink = await new CoffeeForDrink(req.body).save()
 
             res.status(201).json({
-                message: 'coffe For Drink Has Been Created',
+                message: 'coffee For Drink Has Been Created',
                 succes: true,
-                response: coffeForDrink,
-                id : coffeForDrink._id
+                response: coffeeForDrink,
+                id : coffeeForDrink._id
             })
         } catch (error) {
             console.log(error)
@@ -22,17 +22,16 @@ const coffeForDrinkController = {
     },
 
     readAll: async (req, res) => {
-
         let allCoffees
         let query = {}
-        if (req.query.CoffeForDrink) {
-            query.CoffeForDrink = req.query.CoffeForDrink
+        if (req.query.CoffeeForDrink) {
+            query.CoffeeForDrink = req.query.CoffeeForDrink
         }
         try {
-            if (query.CoffeForDrink) {
-                allCoffees = await CoffeForDrink.find({brand: new RegExp("^" + req.query.CoffeForDrink.toLowerCase(), "i") })
+            if (query.CoffeeForDrink) {
+                allCoffees = await CoffeeForDrink.find({brand: new RegExp("^" + req.query.CoffeeForDrink.toLowerCase(), "i") })
             } else {
-                allCoffees = await CoffeForDrink.find()
+                allCoffees = await CoffeeForDrink.find()
             }
             res.status(200).json({
                 message: "Coffees for Drink Founds",
@@ -44,8 +43,9 @@ const coffeForDrinkController = {
             res.status(500).json()
         }
     },
+    
     updateAfterBuy : async (req, res) =>{ 
     }
 }
 
-module.exports = coffeForDrinkController
+module.exports = coffeeForDrinkController

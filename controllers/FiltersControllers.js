@@ -1,6 +1,6 @@
 const Filters = require('../models/Filters.js')
 
-const FiltersCoffe = {
+const FiltersCoffee = {
     create: async(req, res) => {
         try{
             let Filter = await new Filters(req.body).save()
@@ -43,4 +43,4 @@ const FiltersCoffe = {
     }
 }
 
-module.exports = FiltersCoffe
+module.exports = FiltersCoffee
