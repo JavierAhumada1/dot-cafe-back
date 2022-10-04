@@ -19,17 +19,17 @@ const FiltersCoffe = {
     },
     read: async(req, res) => {
         try{
-            let Filter = await Filters.find()
-            if(Filter.length > 0) {
+            let allFilters = await Filters.find()
+            if (allFilters.length > 0) {
                 res.status(200).json({
                     message: "Filtros de cafe",
-                    Filter,
+                    allFilters,
                     success: true
                 })
             }else{
                 res.status(404).json({
                     message: "No hay filtros de cafe",
-                    Filter,
+                    allFilters,
                     success: false
                 })
             }
