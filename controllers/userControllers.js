@@ -1,7 +1,7 @@
 const User = require('../models/userModel')
 const crypto = require('crypto')
 const bcryptjs = require('bcryptjs')
-//const sendMail = require('./sendMail')
+const sendMailToActivate = require('./sendMailToActivate')
 const Joi = require('joi')
 const jwt = require('jsonwebtoken')
 
@@ -77,54 +77,34 @@ const userController = {
                 let code = crypto.randomBytes(15).toString('hex')
                 password = bcryptjs.hashSync(password, 10)
                 if (from === 'form') {
-                    user = await new User(
-                        {
-                            firstName,
-                            lastName,
-                            photo,
-                            email,
-                            password: [password],
-                            tel,
-                            address,
-                            zipCode,
-                            city,
-                            giftCard : [giftCard],
-                            role,
-                            from: [from],
-                            logged,
-                            verified,
-                            code
-                        }).save()
-                    // sendMail(email, code, firstName)
+
+                    sendMailToActivate(email, code, firstName, lastName)
+
+                } else {
+                    verified = true
+                }
+                user = await new User(
+                    {
+                        firstName,
+                        lastName,
+                        photo,
+                        email,
+                        password: [password],
+                        tel,
+                        address,
+                        zipCode,
+                        city,
+                        giftCard : [giftCard],
+                        role,
+                        from: [from],
+                        logged,
+                        verified,
+                        code
+                    }).save()
                     res.status(201).json({
                         message: "user signed up",
                         success: true
                     })
-                } else {
-                    verified = true
-                    user = await new User(
-                        {
-                            firstName,
-                            lastName,
-                            photo,
-                            email,
-                            password: [password],
-                            tel,
-                            address,
-                            zipCode,
-                            city,
-                            giftCard,
-                            role,
-                            from: [from],
-                            logged,
-                            verified,
-                            code
-                        }).save()
-                    res.status(201).json({
-                        message: "user signed up from " + from,
-                        success: true
-                    })
-                }
             } else {
                 if (user.from.includes(from)) {
                     res.status(200).json({
@@ -318,10 +298,22 @@ const userController = {
         }
     },
     signInWithToken: (req, res) => {
+
+        
+        const token = jwt.sign(
+            {
+                id: req.user._id
+            },
+            process.env.KEY_JWT,
+            { expiresIn: 60 * 60 * 24 })
+
         if (req.user !== null) { 
             res.status(200).json({
                 success: true,
-                response: { user: req.user },
+                response: { 
+                    user: req.user, 
+                    token: token 
+                },
                 message: 'Welcome ' + req.user.name + '!'
             })
         } else {
