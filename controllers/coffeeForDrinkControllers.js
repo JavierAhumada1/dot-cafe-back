@@ -1,5 +1,5 @@
 const { query } = require('express')
-const CoffeeForDrink = require('../models/coffeForDrink')
+const CoffeeForDrink = require('../models/coffeeForDrink')
 
 const coffeeForDrinkController = {
     create:async (req, res) => {
