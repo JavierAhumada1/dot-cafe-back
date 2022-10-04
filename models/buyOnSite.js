@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const schema = new mongoose.Schema({
     user: {type: mongoose.Types.ObjectId, ref:'users', required: true},
     tel: { type: Number },
@@ -18,6 +17,6 @@ const schema = new mongoose.Schema({
 const BUYONSITEMODEL = mongoose.model(
     'myCart',
     schema
-
 )
+
 module.exports = BUYONSITEMODEL

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const schema = new mongoose.Schema({
     price: { type: Number },
     stock: { type: Number },
@@ -10,6 +9,6 @@ const schema = new mongoose.Schema({
 const GIFTCARDMODEL = mongoose.model(
     'gifCards',
     schema
-
 )
+
 module.exports = GIFTCARDMODEL

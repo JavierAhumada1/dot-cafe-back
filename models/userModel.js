@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const schema = new mongoose.Schema({
     firstName: { type: String,  required: true },
     lastName: { type: String,  required: true },
@@ -22,6 +21,6 @@ const schema = new mongoose.Schema({
 const USERMODEL = mongoose.model(
     'users',
     schema
-
 )
+
 module.exports = USERMODEL

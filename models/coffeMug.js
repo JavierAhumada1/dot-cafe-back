@@ -13,4 +13,5 @@ const COFFEMUGMODEL = mongoose.model(
     'coffeMug',
     schema
 )
+
 module.exports = COFFEMUGMODEL
