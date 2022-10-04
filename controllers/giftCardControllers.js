@@ -1,12 +1,8 @@
 const { query } = require('express')
 const GiftCards = require('../models/giftCard')
 
-
-
 const giftCardController = {
-
     create:async (req, res) => {
-
         try {
             let giftCard = await new GiftCards(req.body).save()
 
@@ -22,16 +18,11 @@ const giftCardController = {
                 succes: false
             })
         }
-
     },
 
     readAll: async (req, res) => {
-
-        let myGiftCards
-
         try {
-
-            myGiftCards = await GiftCards.find()
+            let myGiftCards = await GiftCards.find()
             if(myGiftCards) {
                 res.status(200).json({
                     message: "Gift Cards Found",
@@ -44,18 +35,14 @@ const giftCardController = {
                     success: false
                 })
             }
-
         } catch (error) {
             console.log(err)
             res.status(500).json()
         }
-
     },
     updateAfterBuy : async (req, res) =>{
-        
+
     },
-
-
 }
 
 module.exports = giftCardController

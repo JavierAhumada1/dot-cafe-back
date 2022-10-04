@@ -18,10 +18,8 @@ const FiltersCoffe = {
         }
     },
     read: async(req, res) => {
-        let Filter
-        
         try{
-            Filter = await Filters.find()
+            let Filter = await Filters.find()
             if(Filter.length > 0) {
                 res.status(200).json({
                     message: "Filtros de cafe",
