@@ -9,8 +9,9 @@ const schema = new mongoose.Schema({
     stock: { type: Number },
 })
 
-const COFFEMUGMODEL = mongoose.model(
-    'coffeMug',
+const COFFEEMUGMODEL = mongoose.model(
+    'coffeeMug',
     schema
 )
-module.exports = COFFEMUGMODEL
+
+module.exports = COFFEEMUGMODEL

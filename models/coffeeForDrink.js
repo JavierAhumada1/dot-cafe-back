@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const schema = new mongoose.Schema({
     brand: { type: String },
     origin: { type: String },
@@ -10,12 +9,11 @@ const schema = new mongoose.Schema({
     size: { type: String },
     type: { type: String },
     description: { type: String },
-
 })
 
-const COFFEDRINKMODEL = mongoose.model(
-    'coffeForDrink',
+const COFFEEDRINKMODEL = mongoose.model(
+    'coffeeForDrink',
     schema
-
 )
-module.exports = COFFEDRINKMODEL
+
+module.exports = COFFEEDRINKMODEL

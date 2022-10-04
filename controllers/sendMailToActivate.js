@@ -7,9 +7,7 @@ const {
     GOOGLE_SECRET,
     GOOGLE_ID,
     GOOGLE_USER
-
 } = process.env
-
 
 const sendMailToActivate = async (email, code , firstName, lastName) => {
     
@@ -18,7 +16,6 @@ const sendMailToActivate = async (email, code , firstName, lastName) => {
         GOOGLE_SECRET,
         GOOGLE_URL
     )
-
 
     client.setCredentials({
         refresh_token: GOOGLE_REFRESH
@@ -63,9 +60,6 @@ const sendMailToActivate = async (email, code , firstName, lastName) => {
             console.log("Correo enviado con exito")
         }
     })
-
-
-
 }
 
 module.exports = sendMailToActivate

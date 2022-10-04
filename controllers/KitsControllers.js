@@ -17,11 +17,10 @@ const KitsController = {
             })
         }
     },
+
     read: async(req, res) => {
-        let kits
-        
         try{
-            kits = await Kits.find()
+            let kits = await Kits.find()
             if(kits.length > 0) {
                 res.status(200).json({
                     message: "Kits de cafe",

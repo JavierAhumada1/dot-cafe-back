@@ -1,9 +1,9 @@
-const CoffeMachines = require('../models/CoffeeMachines')
+const CoffeeMachines = require('../models/CoffeeMachines')
 
-const coffeMachine = {
+const coffeeMachine = {
     create: async(req, res) => {
         try{
-            let cofMachine = await new CoffeMachines(req.body).save()
+            let cofMachine = await new CoffeeMachines(req.body).save()
             res.status(201).json({
                 message: 'Maquinas de cafe',
                 success: true,
@@ -17,11 +17,9 @@ const coffeMachine = {
             })
         }
     },
-    read: async(req, res) => {
-        let cofMachine
-        
+    read: async(req, res) => {        
         try{
-            cofMachine = await CoffeMachines.find()
+            let cofMachine = await CoffeeMachines.find()
             if(cofMachine.length > 0) {
                 res.status(200).json({
                     message: "Maquinas de cafe",
@@ -45,4 +43,4 @@ const coffeMachine = {
     }
 }
 
-module.exports = coffeMachine
+module.exports = coffeeMachine

@@ -11,9 +11,9 @@ const schema = new mongoose.Schema({
   stock: {type:Number, require: true},
 })
 
-const CoffeByKilogram = mongoose.model(
-    'coffeByKilograms',
+const CoffeeByKilogram = mongoose.model(
+    'coffeeByKilogram',
     schema
 )
 
-module.exports = CoffeByKilogram;
+module.exports = CoffeeByKilogram;

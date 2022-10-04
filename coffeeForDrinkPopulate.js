@@ -1,7 +1,6 @@
 require('dotenv').config()
 const db = require('./config/database')
-const CoffeeForDrink = require('./models/coffeForDrink')
-
+const CoffeeForDrink = require('./models/coffeeForDrink')
 
 CoffeeForDrink.create(
     {

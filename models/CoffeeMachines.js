@@ -9,9 +9,9 @@ const schema = new mongoose.Schema({
     type: {type: String, require: true}
 })
 
-const CoffeMachines = mongoose.model(
-    'coffemachines',
+const CoffeeMachines = mongoose.model(
+    'coffeemachines',
     schema
 )
 
-module.exports = CoffeMachines;
+module.exports = CoffeeMachines;

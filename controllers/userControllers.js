@@ -59,7 +59,6 @@ const userLoginValidator = Joi.object({
     "from": Joi.string().required()
 })
 
-
 const userController = {
 
     signUp: async (req, res) => {
@@ -67,9 +66,7 @@ const userController = {
        
         let giftCard
         try {
-
             await userValidator.validateAsync(req.body)
-
             let user = await User.findOne({ email })
             if (!user) {
                 let logged = false
@@ -77,9 +74,7 @@ const userController = {
                 let code = crypto.randomBytes(15).toString('hex')
                 password = bcryptjs.hashSync(password, 10)
                 if (from === 'form') {
-
                     sendMailToActivate(email, code, firstName, lastName)
-
                 } else {
                     verified = true
                 }
@@ -132,14 +127,10 @@ const userController = {
     },
 
     signIn: async (req, res) => {
-
         const { email, password, from } = req.body
         try {
-
             await userLoginValidator.validateAsync(req.body)
-
             const user = await User.findOne({ email })
-
             const token = jwt.sign(
                 {
                     id: user._id,
@@ -155,9 +146,7 @@ const userController = {
                 })
             }
             else if (user.verified) {
-
                 const userPass = user.password.filter(userpassword => bcryptjs.compareSync(password, userpassword))
-
                 if (from === "form") {
                     if (userPass.length > 0) {
                         const loginUser = {
@@ -195,9 +184,7 @@ const userController = {
                 }
                 else {
                     if (userPass.length > 0) {
-
                         user.logged = true
-
                         const loginUser = {
                             id: user._id,
                             firstName: user.firstName,
@@ -212,7 +199,6 @@ const userController = {
                             giftCard: user.giftCard,
                             role: user.role,
                         }
-
                         await user.save()
                         res.status(200).json({
                             message: 'Login Success from Google',
@@ -297,9 +283,8 @@ const userController = {
             })
         }
     },
-    signInWithToken: (req, res) => {
 
-        
+    signInWithToken: (req, res) => {
         const token = jwt.sign(
             {
                 id: req.user._id
@@ -324,14 +309,11 @@ const userController = {
         }
     },
 
-
     editProfile: async (req, res) => {
         const { id } = req.params
         try {
             const newDataProfile = req.body
-
             let user = await User.findOne({ _id: id })
-
             if (user) {
                 const updateProfile = await User.findByIdAndUpdate(id, newDataProfile)
                 res.status(200).json({
@@ -339,8 +321,6 @@ const userController = {
                     succes: true
                 })
             }
-
-
         } catch (error) {
             console.log(error)
             res.status(400).json({
@@ -349,10 +329,6 @@ const userController = {
             })
         }
     },
-
-
-
-
 }
 
 module.exports = userController

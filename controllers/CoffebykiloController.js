@@ -1,9 +1,9 @@
-const CoffeByKilogram = require('../models/CoffeeByKilogram')
+const CoffeeByKilogram = require('../models/CoffeeByKilogram')
 
 const ByKilogram = {
     create: async(req, res) => {
         try{
-            let coByKi = await new CoffeByKilogram(req.body).save()
+            let coByKi = await new CoffeeByKilogram(req.body).save()
             res.status(201).json({
                 message: 'cafe en bolsa creado',
                 success: true,
@@ -17,14 +17,13 @@ const ByKilogram = {
             })
         }
     },
+
     read: async(req, res) => {
-        let coffeByKi
-        
         try{
-            coffeByKi = await CoffeByKilogram.find()
+            let coffeeByKi = await CoffeeByKilogram.find()
             res.status(200).json({
                 message: "Cafe en sobres",
-                coffeByKi,
+                coffeeByKi,
                 success: true
             })
         }catch(error){
