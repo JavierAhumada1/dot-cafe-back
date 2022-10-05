@@ -19,8 +19,12 @@ const ByKilogram = {
     },
 
     read: async(req, res) => {
+        let query = {}
+        if (req.query.weight) {
+            query.weight = req.query.weight
+        }
         try{
-            let coffeeByKi = await CoffeeByKilogram.find()
+            let coffeeByKi = await CoffeeByKilogram.find(query)
             res.status(200).json({
                 message: "Cafe en sobres",
                 coffeeByKi,

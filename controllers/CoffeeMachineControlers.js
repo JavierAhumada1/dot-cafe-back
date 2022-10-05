@@ -17,9 +17,13 @@ const coffeeMachine = {
             })
         }
     },
-    read: async(req, res) => {        
+    read: async(req, res) => {
+        let query = {}
+        if (req.query.type) {
+            query.type = req.query.type
+        }
         try{
-            let cofMachine = await CoffeeMachines.find()
+            let cofMachine = await CoffeeMachines.find(query)
             if(cofMachine.length > 0) {
                 res.status(200).json({
                     message: "Maquinas de cafe",

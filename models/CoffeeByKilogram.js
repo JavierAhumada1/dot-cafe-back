@@ -9,6 +9,8 @@ const schema = new mongoose.Schema({
   weight: {type: Number, require: true},
   roastingLevels: {type:String, require: true},
   stock: {type:Number, require: true},
+  price: {type:Number, require: true},
+
 })
 
 const CoffeeByKilogram = mongoose.model(
