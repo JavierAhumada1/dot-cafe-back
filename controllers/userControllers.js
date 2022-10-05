@@ -14,10 +14,6 @@ const userValidator = Joi.object({
         'string.empty': 'Please type your last name'
     })
         .required(),
-    "city": Joi.string().messages({
-        'string.empty': 'Please type your country'
-    })
-        .required(),
     "email": Joi.string().email().messages({
         'string.empty': 'Please type your email',
         'string.email': 'You must enter a valid email address'
@@ -37,17 +33,7 @@ const userValidator = Joi.object({
             'string.uri': 'You must enter a valid URL'
         })
         .required(),
-    "role": Joi.string().required(),
     "from": Joi.string().required(),
-    "address": Joi.string().required().messages({
-        'string.empty': 'Please enter an address for shipping'
-    }),
-    "zipCode": Joi.string().required().messages({
-        'string.empty': 'Please enter a zip code'
-    }),
-    "tel": Joi.number().required().messages({
-        'number.empty': 'Please enter a phone number'
-    }),
 })
 
 const userLoginValidator = Joi.object({
