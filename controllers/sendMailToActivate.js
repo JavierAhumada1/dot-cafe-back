@@ -49,7 +49,7 @@ const sendMailToActivate = async (email, code , firstName, lastName) => {
             <p style="text-align: center;">&nbsp;</p>
             <p><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="https://www.consumoteca.com/wp-content/uploads/Restaurante-cafeter%C3%ADa.jpeg" width="543" height="330" /></strong></p>
             <p>&nbsp;</p>
-            <p style="text-align: center;">Haz click en el boton para verificar tu cuenta.  <br/> <br/>  <a style="background: #04BF9D; color: #ffffff; padding: 10px 50px; border-radius: 3px; text-align: center;" href="https://punto-cafe-backend.onrender.com/auth/verify/${code}">confirmar</a></p>
+            <p style="text-align: center;">Haz click en el boton para verificar tu cuenta.  <br/> <br/>  <a style="background: #04BF9D; color: #ffffff; padding: 10px 50px; border-radius: 3px; text-align: center;" href="http://localhost:4012/auth/verify/${code}">confirmar</a></p>
         `
     }
 
