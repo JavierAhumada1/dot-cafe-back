@@ -24,20 +24,25 @@ const coffeeForDrinkController = {
     readAll: async (req, res) => {
         let allCoffees
         let query = {}
-        if (req.query.CoffeeForDrink) {
-            query.CoffeeForDrink = req.query.CoffeeForDrink
+        for (let x in req.query) {
+            let regexp = new RegExp(req.query[x].trim())
+            query[x] = {$regex: regexp, $options:'i'}
         }
         try {
-            if (query.CoffeeForDrink) {
-                allCoffees = await CoffeeForDrink.find({brand: new RegExp("^" + req.query.CoffeeForDrink.toLowerCase(), "i") })
+            let allCoffees = await CoffeeForDrink.find(query)
+            if (allCoffees) {
+                res.status(200).json({
+                    message: "Coffees for Drink Founds",
+                    response: allCoffees,
+                    success: true
+                })
             } else {
-                allCoffees = await CoffeeForDrink.find()
+                res.status(404).json({
+                    message: 'Any Coffees Found',
+                    success: false
+                })
             }
-            res.status(200).json({
-                message: "Coffees for Drink Founds",
-                response: allCoffees,
-                success: true
-            })
+            
         } catch (error) {
             console.log(err)
             res.status(500).json()
