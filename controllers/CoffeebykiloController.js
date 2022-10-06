@@ -23,6 +23,9 @@ const ByKilogram = {
         if (req.query.weight) {
             query.weight = req.query.weight
         }
+        if (req.query.origin) {
+            query.origin = req.query.origin
+        }
         try{
             let coffeeByKi = await CoffeeByKilogram.find(query)
             res.status(200).json({
