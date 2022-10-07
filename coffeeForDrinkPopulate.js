@@ -4,34 +4,34 @@ const CoffeeForDrink = require('./models/coffeeForDrink')
 
 CoffeeForDrink.create(
     {
-        brand:"Inzovu PB Espresso",
+        brand:"Inzovu PB Expreso",
         origin: "Ruanda",
         photo: "http://drive.google.com/uc?export=view&id=1muNBNqwLWSvZioCY63Gs-3G7wzwJBOtK",
         pricePerCup: 200,
         pricePerMug: 100,
         size: "Chico",
-        type: "Espresso",
-        description: "30 ml de espresso"
+        type: "Expreso",
+        description: "30 ml de Expreso"
     },
     {
-        brand:"Inzovu PB Espresso",
+        brand:"Inzovu PB Expreso",
         origin: "Ruanda",
         photo: "http://drive.google.com/uc?export=view&id=1muNBNqwLWSvZioCY63Gs-3G7wzwJBOtK",
         pricePerCup: 300,
         pricePerMug: 200,
         size: "Mediano",
-        type: "Espresso Intenso",
-        description: "60 ml de espresso"
+        type: "Expreso Intenso",
+        description: "60 ml de Expreso"
     },
     {
-        brand:"Inzovu PB Espresso",
+        brand:"Inzovu PB Expreso",
         origin: "Ruanda",
         photo: "http://drive.google.com/uc?export=view&id=1muNBNqwLWSvZioCY63Gs-3G7wzwJBOtK",
         pricePerCup: 400,
         pricePerMug: 300,
         size: "Grande",
-        type: "Espresso Lungo",
-        description: "90 ml de espresso"
+        type: "Expreso Lungo",
+        description: "90 ml de Expreso"
     },
     {
         brand:"Planalto",
@@ -50,8 +50,8 @@ CoffeeForDrink.create(
         pricePerCup: 250,
         pricePerMug: 170,
         size: "Chico",
-        type: "Espresso Macchiato",
-        description: "30 ml de espresso, más una buena dosis de espuma de leche"
+        type: "Expreso Macchiato",
+        description: "30 ml de Expreso, más una buena dosis de espuma de leche"
     },
     {
         brand:"Decaf Buenos Aires",
@@ -60,18 +60,18 @@ CoffeeForDrink.create(
         pricePerCup: 300,
         pricePerMug: 220,
         size: "Mediano",
-        type: "Espresso Macchiato",
-        description: "60 ml de espresso, más una buena dosis de espuma de leche"
+        type: "Expreso Macchiato",
+        description: "60 ml de Expreso, más una buena dosis de espuma de leche"
     },
     {
         brand:"Decaf Buenos Aires",
-        origin: "colombia",
+        origin: "Colombia",
         photo: "http://drive.google.com/uc?export=view&id=1muNBNqwLWSvZioCY63Gs-3G7wzwJBOtK",
         pricePerCup: 390,
         pricePerMug: 300,
         size: "Grande",
-        type: "Espresso Macchiato",
-        description: "90 ml de espresso, más una buena dosis de espuma de leche"
+        type: "Expreso Macchiato",
+        description: "90 ml de Expreso, más una buena dosis de espuma de leche"
     },
     {
         brand:"Vista Hermosa",
@@ -81,7 +81,7 @@ CoffeeForDrink.create(
         pricePerMug: 300,
         size: "Chico",
         type: "Cappuccino",
-        description: "150 ml de espresso + leche al vapor + leche espumada"
+        description: "150 ml de Expreso + leche al vapor + leche espumada"
     },
     {
         brand:"Vista Hermosa",
@@ -91,17 +91,17 @@ CoffeeForDrink.create(
         pricePerMug: 370,
         size: "Mediano",
         type: "Cappuccino",
-        description: "300 ml de espresso + leche al vapor + leche espumada"
+        description: "300 ml de Expreso + leche al vapor + leche espumada"
     },
     {
         brand:"Vista Hermosa",
-        origin: "colombia",
+        origin: "Colombia",
         photo: "http://drive.google.com/uc?export=view&id=1K07CEcS7DP6YaX3dD82FCKGMwqKXYjMU",
         pricePerCup: 580,
         pricePerMug: 490,
         size: "Grande",
         type: "Cappuccino",
-        description: "420 ml de espresso + leche al vapor + leche espumada"
+        description: "420 ml de Expreso + leche al vapor + leche espumada"
     },
     {
         brand:"Decaf Buenos Aires",
@@ -111,7 +111,7 @@ CoffeeForDrink.create(
         pricePerMug: 170,
         size: "Chico",
         type: "Latte Macchiato",
-        description: "60 ml leche al vapor + leche espumada + toque de espresso"
+        description: "60 ml leche al vapor + leche espumada + toque de Expreso"
     },
     {
         brand:"Decaf Buenos Aires",
@@ -121,47 +121,47 @@ CoffeeForDrink.create(
         pricePerMug: 220,
         size: "Mediano",
         type: "Latte Macchiato",
-        description: "90 ml leche al vapor + leche espumada + toque de espresso"
+        description: "90 ml leche al vapor + leche espumada + toque de Expreso"
     },
     {
         brand:"Decaf Buenos Aires",
-        origin: "colombia",
+        origin: "Colombia",
         photo: "http://drive.google.com/uc?export=view&id=1K07CEcS7DP6YaX3dD82FCKGMwqKXYjMU",
         pricePerCup: 390,
         pricePerMug: 300,
         size: "Grande",
         type: "Latte Macchiato",
-        description: "120 ml leche al vapor + leche espumada + toque de espresso"
+        description: "120 ml leche al vapor + leche espumada + toque de Expreso"
     },
     {
-        brand:"Tutti Frutti Espresso",
+        brand:"Tutti Frutti Expreso",
         origin: "Blend",
         photo: "http://drive.google.com/uc?export=view&id=1K07CEcS7DP6YaX3dD82FCKGMwqKXYjMU",
         pricePerCup: 270,
         pricePerMug: 200,
         size: "Chico",
         type: "Café americano",
-        description: "60 ml de espresso + agua caliente"
+        description: "60 ml de Expreso + agua caliente"
     },
     {
-        brand:"Tutti Frutti Espresso",
+        brand:"Tutti Frutti Expreso",
         origin: "Blend",
         photo: "http://drive.google.com/uc?export=view&id=1K07CEcS7DP6YaX3dD82FCKGMwqKXYjMU",
         pricePerCup: 340,
         pricePerMug: 280,
         size: "Mediano",
         type: "Café americano",
-        description: "90 ml de espresso + agua caliente"
+        description: "90 ml de Expreso + agua caliente"
     },
     {
-        brand:"Tutti Frutti Espresso",
+        brand:"Tutti Frutti Expreso",
         origin: "Blend",
         photo: "http://drive.google.com/uc?export=view&id=1K07CEcS7DP6YaX3dD82FCKGMwqKXYjMU",
         pricePerCup: 420,
         pricePerMug: 370,
         size: "Grande",
         type: "Café americano",
-        description: "120 ml de espresso + agua caliente"
+        description: "120 ml de Expreso + agua caliente"
     },
     {
         brand:"Remera Natural",
@@ -170,8 +170,8 @@ CoffeeForDrink.create(
         pricePerCup: 380,
         pricePerMug: 310,
         size: "Chico",
-        type: "Caffè Latte",
-        description: "75 ml de leche al vapor + espresso + leche espumada"
+        type: "Café Latte",
+        description: "75 ml de leche al vapor + Expreso + leche espumada"
     },
     {
         brand:"Remera Natural",
@@ -180,8 +180,8 @@ CoffeeForDrink.create(
         pricePerCup: 430,
         pricePerMug: 370,
         size: "Mediano",
-        type: "Caffè Latte",
-        description: "150 ml de leche al vapor + espresso + leche espumada"
+        type: "Café Latte",
+        description: "150 ml de leche al vapor + Expreso + leche espumada"
     },
     {
         brand:"Remera Natural",
@@ -190,8 +190,8 @@ CoffeeForDrink.create(
         pricePerCup: 490,
         pricePerMug: 420,
         size: "Grande",
-        type: "Caffè Latte",
-        description: "300 ml de leche al vapor + espresso + leche espumada"
+        type: "Café Latte",
+        description: "300 ml de leche al vapor + Expreso + leche espumada"
     },
     {
         brand:"Vista Hermosa",
@@ -201,7 +201,7 @@ CoffeeForDrink.create(
         pricePerMug: 370,
         size: "Chico",
         type: "Mocaccino",
-        description: "150 ml de espresso + leche al vapor + leche espumada + jarabe de cacao"
+        description: "150 ml de Expreso + leche al vapor + leche espumada + jarabe de cacao"
     },
     {
         brand:"Vista Hermosa",
@@ -211,7 +211,7 @@ CoffeeForDrink.create(
         pricePerMug: 420,
         size: "Mediano",
         type: "Mocaccino",
-        description: "300 ml de espresso + leche al vapor + leche espumada + jarabe de cacao"
+        description: "300 ml de Expreso + leche al vapor + leche espumada + jarabe de cacao"
     },
     {
         brand:"Vista Hermosa",
@@ -221,7 +221,7 @@ CoffeeForDrink.create(
         pricePerMug: 500,
         size: "Grande",
         type: "Mocaccino",
-        description: "420 ml de espresso + leche al vapor + leche espumada + jarabe de cacao"
+        description: "420 ml de Expreso + leche al vapor + leche espumada + jarabe de cacao"
     },
     {
         brand:"Vista Hermosa",
@@ -231,7 +231,7 @@ CoffeeForDrink.create(
         pricePerMug: 300,
         size: "Chico",
         type: "Frappuccino",
-        description: "150 ml de espresso granizado + leche + leche espumada"
+        description: "150 ml de Expreso granizado + leche + leche espumada"
     },
     {
         brand:"Vista Hermosa",
@@ -241,7 +241,7 @@ CoffeeForDrink.create(
         pricePerMug: 370,
         size: "Mediano",
         type: "Frappuccino",
-        description: "300 ml de espresso granizado + leche + leche espumada"
+        description: "300 ml de Expreso granizado + leche + leche espumada"
     },
     {
         brand:"Vista Hermosa",
@@ -251,7 +251,7 @@ CoffeeForDrink.create(
         pricePerMug: 490,
         size: "Grande",
         type: "Frappuccino",
-        description: "420 ml de espresso granizado + leche  + leche espumada"
+        description: "420 ml de Expreso granizado + leche  + leche espumada"
     }
 
 )
