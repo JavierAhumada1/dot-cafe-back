@@ -19,7 +19,7 @@ var coffeeByKilo = require('./routes/coffeeKiloRouter')
 var coffeeMachine = require('./routes/coffeeMaRouter.js')
 var filters = require('./routes/FiltersRouter')
 var kits = require('./routes/kitsRouter')
-
+var subscribers = require('./routes/SubscribersRoutes.js')
 
 var app = express();
 
@@ -40,6 +40,7 @@ app.use('/coffee-kilogram', coffeeByKilo)
 app.use('/coffee-machine', coffeeMachine)
 app.use('/coffee-filters', filters)
 app.use('/kits', kits)
+app.use('/subscribers', subscribers )
 
 // Routes for DOT COFFEE
 app.use('/auth', USER)
