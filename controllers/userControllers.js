@@ -34,6 +34,7 @@ const userValidator = Joi.object({
         })
         .required(),
     "from": Joi.string().required(),
+    "role": Joi.string(),
 })
 
 const userLoginValidator = Joi.object({
@@ -58,12 +59,13 @@ const userController = {
                 let logged = false
                 let verified = false
                 let code = crypto.randomBytes(15).toString('hex')
-                password = bcryptjs.hashSync(password, 10)
+                
                 if (from === 'form') {
                     sendMailToActivate(email, code, firstName, lastName)
                 } else {
                     verified = true
                 }
+                password = bcryptjs.hashSync(password, 10)
                 user = await new User(
                     {
                         firstName,
