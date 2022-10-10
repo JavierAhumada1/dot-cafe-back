@@ -13,7 +13,7 @@ const schema = new mongoose.Schema({
     giftCard: { type: Array  },
     from: [{ type: String,  required: true }],
     code: { type: String,  required: true },
-    role: { type: String},
+    role: { type: String, required: true},
     logged: { type: Boolean,  required: true },
     verified: { type: Boolean,  required: true },
 })
