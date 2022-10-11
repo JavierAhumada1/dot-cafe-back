@@ -49,7 +49,7 @@ const userLoginValidator = Joi.object({
 const userController = {
 
     signUp: async (req, res) => {
-        let { firstName, lastName, photo, email, password, tel, address,zipCode,city, role, from} = req.body
+        let { dni, province, firstName, lastName, photo, email, password, tel, address,zipCode,city, role, from} = req.body
        
         let giftCard
         try {
