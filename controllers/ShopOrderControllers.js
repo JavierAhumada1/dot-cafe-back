@@ -48,7 +48,31 @@ const shopOrderController = {
                 success: false
             })
         }
-    }
+    },
+    readOrder: async (req, res) => {
+        const { id } = req.params
+        try {
+            let findOrder = await Order.findOne({ _id: id })
+            if (findOrder) {
+                res.status(200).json({
+                    message: 'orden encontrada',
+                    response: findOrder,
+                    success: true
+                })
+            } else {
+                res.status(404).json({
+                    message: 'orden no encontrada',
+                    success: false
+                })
+            }
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({
+                message: "error",
+                success: false
+            })
+        }
+    },
 }
 
 module.exports = shopOrderController

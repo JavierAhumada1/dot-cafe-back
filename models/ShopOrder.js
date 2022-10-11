@@ -10,6 +10,7 @@ const schema = new mongoose.Schema({
             price: {type: Number, required: true},
             totalPrice: {type: Number, required: true}
             }],
+    date: {type: Date, required: true},
     total: {type: Number, required: true},
     payment: {type: Boolean},
     state: {type: String}
