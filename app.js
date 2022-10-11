@@ -14,6 +14,7 @@ const USER = require('./routes/usersRoutes');
 const DRINK = require('./routes/coffeeDrink');
 const GIFTCARD  = require('./routes/giftCardsRoutes')
 const MUGS  = require('./routes/mugsRoutes')
+const shopOrders  = require('./routes/shopOrderRouter')
 
 var coffeeByKilo = require('./routes/coffeeKiloRouter')
 var coffeeMachine = require('./routes/coffeeMaRouter.js')
@@ -40,6 +41,7 @@ app.use('/coffee-kilogram', coffeeByKilo)
 app.use('/coffee-machine', coffeeMachine)
 app.use('/coffee-filters', filters)
 app.use('/kits', kits)
+app.use('/orders', shopOrders)
 
 // Routes for DOT COFFEE
 app.use('/auth', USER)
