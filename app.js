@@ -21,6 +21,7 @@ var coffeeMachine = require('./routes/coffeeMaRouter.js')
 var filters = require('./routes/FiltersRouter')
 var kits = require('./routes/kitsRouter')
 var subscribers = require('./routes/SubscribersRoutes.js')
+var MERCADOPAGO = require('./routes/mercadopagoRoutes')
 
 var app = express();
 
@@ -49,6 +50,9 @@ app.use('/auth', USER)
 app.use('/coffee', DRINK)
 app.use('/giftcard', GIFTCARD)
 app.use('/mugs', MUGS)
+
+//route MERCADOPAGO
+app.use('/mercadopago', MERCADOPAGO)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
