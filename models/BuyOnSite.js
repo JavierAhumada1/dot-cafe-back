@@ -14,9 +14,9 @@ const schema = new mongoose.Schema({
     pay : { type: Boolean },
 })
 
-const BUYONSITEMODEL = mongoose.model(
+const BuyOnSiteModel = mongoose.model(
     'myCart',
     schema
 )
 
-module.exports = BUYONSITEMODEL
+module.exports = BuyOnSiteModel
