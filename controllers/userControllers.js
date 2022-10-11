@@ -310,14 +310,14 @@ const userController = {
                 const updateProfile = await User.findByIdAndUpdate(id, newDataProfile)
                 res.status(200).json({
                     message: 'Tu perfil se ha actualizado',
-                    succes: true
+                    success: true
                 })
             }
         } catch (error) {
             console.log(error)
             res.status(400).json({
                 message: error.message,
-                succes: false
+                success: false
             })
         }
     },
