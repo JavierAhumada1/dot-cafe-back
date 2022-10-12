@@ -69,7 +69,31 @@ const coffeeMugController = {
                 succes: false
             })
         }
-    }
+    },
+    readByCamp: async(req, res) => {
+        let all
+
+        try {
+            all = await CoffeeMug.find()
+            let newData = []
+
+            all.map(item => newData.push({
+                name: item.name,
+                photo: item.photo,
+                _id: item._id,
+                price: item.price
+            }))
+            if(all.length > 0){
+                res.status(200).json({
+                    message: 'ciertos campos',
+                    response: newData,
+                    success: true
+                })
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    },
 }
 
 module.exports = coffeeMugController

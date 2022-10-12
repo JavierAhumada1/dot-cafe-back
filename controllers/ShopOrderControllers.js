@@ -5,7 +5,7 @@ const shopOrderController = {
         try {
             let newOrder = new Order(req.body)
             newOrder.payment = false
-            newOrder.state = "En proceso"
+            newOrder.state = "Sin enviar"
             await newOrder.save()
             res.status(201).json({
                 message: 'orden creada',
@@ -73,6 +73,23 @@ const shopOrderController = {
             })
         }
     },
+    deleteOrder: async(req, res) => {
+        const {id} = req.params
+        try {
+            let removeOrder = await Order.findByIdAndDelete({_id: id})
+            res.status(200).json({
+                message: 'Orden de compra eliminada',
+                response: removeOrder,
+                success: true
+            })
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({
+                message: "error",
+                success: false
+            })
+        }
+    }
 }
 
 module.exports = shopOrderController
