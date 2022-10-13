@@ -57,7 +57,8 @@ const coffeeMachine = {
                 name: item.name,
                 photo: item.photo,
                 _id: item._id,
-                price: item.price
+                price: item.price,
+                description: item.description,
             }))
             if(all.length > 0){
                 res.status(200).json({
