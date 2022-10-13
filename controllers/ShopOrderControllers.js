@@ -1,4 +1,5 @@
 const Order = require('../models/ShopOrder')
+const sendMailorder = require('./sendMailOrder')
 
 const shopOrderController = {
     create: async (req, res) => {
@@ -27,7 +28,7 @@ const shopOrderController = {
         }
         try {
             let orders = await Order.find(query)
-            .populate('user', { firtName:1, lastName:1, address:1, city:1, province:1, zipCode:1, email:1, tel:1, dni:1 })
+            .populate('user', { firstName:1, lastName:1, address:1, city:1, province:1, zipCode:1, email:1, tel:1, dni:1 })
 
             if (orders) {
                 res.status(200).json({
@@ -96,7 +97,7 @@ const shopOrderController = {
             const updateOrder = req.body
             let myOrder = await Order.findOne({ _id: id })
             if (!myOrder) {
-                res.status(200).json({
+                res.status(400).json({
                     message: 'No se pudo actualizar',
                     success: false
                 }) 
@@ -108,6 +109,35 @@ const shopOrderController = {
                 }) 
             }
 
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({
+                message: error.message,
+                success: false
+            })
+        }
+    },
+    resumeOrder: async(req,res)=>{
+
+        const{id} = req.params
+
+        const { email, products, firstName, lastName, total, statusPayment} = req.body
+
+        try {
+            let mailOrder = await Order.findOne({ _id: id })
+            if(mailOrder) {
+                sendMailorder(email, products, firstName, lastName, total, statusPayment, id)
+                res.status(200).json({
+                    message: 'pedido encontrado, se ha enviado el resumen de compra',
+                    success: true
+                }) 
+            } else {
+                res.status(400).json({
+                    message: 'No existe el pedido, no se puede enviar el resumen de comrpra',
+                    success: false
+                }) 
+            }
+            
         } catch (error) {
             console.log(error)
             res.status(400).json({
