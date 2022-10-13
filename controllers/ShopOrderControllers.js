@@ -89,6 +89,32 @@ const shopOrderController = {
                 success: false
             })
         }
+    },
+    updateOrder : async(req,res) =>{
+        const { id } = req.params
+        try {
+            const updateOrder = req.body
+            let myOrder = await Order.findOne({ _id: id })
+            if (!myOrder) {
+                res.status(200).json({
+                    message: 'No se pudo actualizar',
+                    success: false
+                }) 
+            } else {
+                const updatePayment = await Order.findByIdAndUpdate(id, updateOrder)
+                res.status(200).json({
+                    message: 'Tu estado de pago ha sido actualizado',
+                    success: true
+                }) 
+            }
+
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({
+                message: error.message,
+                success: false
+            })
+        }
     }
 }
 
