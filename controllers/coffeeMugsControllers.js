@@ -81,7 +81,8 @@ const coffeeMugController = {
                 name: item.name,
                 photo: item.photo,
                 _id: item._id,
-                price: item.price
+                price: item.price,
+                description: item.description,
             }))
             if(all.length > 0){
                 res.status(200).json({
@@ -94,6 +95,30 @@ const coffeeMugController = {
             console.log(error)
         }
     },
+    readOne: async (req, res) => {
+        const { id } = req.params
+        try{
+            let mugs = await CoffeeMug.findOne ({ _id: id })
+            if(mugs) {
+                res.status(200).json({
+                    message: 'Taza encontrada',
+                    response: mugs,
+                    success: true
+                })
+            }else {
+                res.status(404).json({
+                    message: 'Taza no encontrada',
+                    succes: false
+                })
+            }
+        } catch (error){
+            console.log(error)
+            res.status(400).json({
+                message: ' Error',
+                succes: false
+            })
+        }
+    }
 }
 
 module.exports = coffeeMugController
