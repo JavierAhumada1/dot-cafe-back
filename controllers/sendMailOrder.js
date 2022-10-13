@@ -50,8 +50,9 @@ const sendMailorder = async (email, products, firstName, lastName, total, status
             <p>${products}</p>
             <hr/>
             <p>total:</p>
-            <p>${total}</p>
+            <p> AR$ ${total}</p>
             <hr/>
+            <p>${statusPayment}</p>
             <p style="text-align: center;">&nbsp;</p>
             <p style="text-align: center;">Verifica el status de tu compra.  <br/> <br/>  <a style="background: #04BF9D; color: #ffffff; padding: 10px 50px; border-radius: 3px; text-align: center;" href="http://localhost:3000/mi-orden/${id}">Ver Orden</a></p>
         `
