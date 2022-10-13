@@ -22,6 +22,7 @@ var filters = require('./routes/FiltersRouter')
 var kits = require('./routes/kitsRouter')
 var subscribers = require('./routes/SubscribersRoutes.js')
 
+
 var app = express();
 
 // view engine setup
@@ -49,6 +50,9 @@ app.use('/auth', USER)
 app.use('/coffee', DRINK)
 app.use('/giftcard', GIFTCARD)
 app.use('/mugs', MUGS)
+
+//route MERCADOPAGO
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

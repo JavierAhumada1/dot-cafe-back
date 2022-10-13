@@ -69,6 +69,55 @@ const coffeeMugController = {
                 succes: false
             })
         }
+    },
+    readByCamp: async(req, res) => {
+        let all
+
+        try {
+            all = await CoffeeMug.find()
+            let newData = []
+
+            all.map(item => newData.push({
+                name: item.name,
+                photo: item.photo,
+                _id: item._id,
+                price: item.price,
+                description: item.description,
+            }))
+            if(all.length > 0){
+                res.status(200).json({
+                    message: 'ciertos campos',
+                    response: newData,
+                    success: true
+                })
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    readOne: async (req, res) => {
+        const { id } = req.params
+        try{
+            let mugs = await CoffeeMug.findOne ({ _id: id })
+            if(mugs) {
+                res.status(200).json({
+                    message: 'Taza encontrada',
+                    response: mugs,
+                    success: true
+                })
+            }else {
+                res.status(404).json({
+                    message: 'Taza no encontrada',
+                    succes: false
+                })
+            }
+        } catch (error){
+            console.log(error)
+            res.status(400).json({
+                message: ' Error',
+                succes: false
+            })
+        }
     }
 }
 

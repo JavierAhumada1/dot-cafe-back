@@ -8,29 +8,29 @@ const jwt = require('jsonwebtoken')
 
 const userValidator = Joi.object({
     "firstName": Joi.string().messages({
-        'string.empty': 'Please type your name'
+        'string.empty': 'Por favor, escriba su nombre'
     }).required(),
     "lastName": Joi.string().messages({
-        'string.empty': 'Please type your last name'
+        'string.empty': 'Por favor, escriba su apellido'
     })
         .required(),
     "email": Joi.string().email().messages({
-        'string.empty': 'Please type your email',
-        'string.email': 'You must enter a valid email address'
+        'string.empty': 'Escriba su correo electrónico',
+        'string.email': 'Debe introducir una dirección de correo electrónico válida'
     })
 
         .required(),
     "password": Joi.string().alphanum().min(6).messages({
-        'string.empty': 'Please type your password',
-        'string.alphanum': 'You must enter a password which contains numbers or letters',
-        'string.min': 'Your password must be at least 6 characters long'
+        'string.empty': 'Escriba una contraseña',
+        'string.alphanum': 'Debe introducir una contraseña que contenga números o letras',
+        'string.min': 'Su contraseña debe tener al menos 6 caracteres'
     }).required(),
     "photo": Joi.string().messages({
-        'string.empty': 'Please enter a photo url'
+        'string.empty': 'Por favor, introduzca la url de la foto'
     })
         .uri()
         .messages({
-            'string.uri': 'You must enter a valid URL'
+            'string.uri': 'Debe introducir una URL válida'
         })
         .required(),
     "from": Joi.string().required(),
@@ -49,7 +49,7 @@ const userLoginValidator = Joi.object({
 const userController = {
 
     signUp: async (req, res) => {
-        let { firstName, lastName, photo, email, password, tel, address,zipCode,city, role, from} = req.body
+        let { dni, province, firstName, lastName, photo, email, password, tel, address,zipCode,city, role, from} = req.body
        
         let giftCard
         try {
@@ -87,13 +87,13 @@ const userController = {
                         code
                     }).save()
                     res.status(201).json({
-                        message: "user signed up",
+                        message: "usuario registrado",
                         success: true
                     })
             } else {
                 if (user.from.includes(from)) {
                     res.status(200).json({
-                        message: "user already exist " + from,
+                        message: "El usuario ya existe " + from,
                         success: false
                     })
                 } else {
@@ -102,7 +102,7 @@ const userController = {
                     user.password.push(bcryptjs.hashSync(password, 10))
                     await user.save()
                     res.status(201).json({
-                        message: "user signed up from " + from,
+                        message: "El usuario se registró desde" + from,
                         success: true
                     })
                 }
@@ -131,7 +131,7 @@ const userController = {
 
             if (!user) {
                 res.status(404).json({
-                    message: 'User does not exist, please Sign Up!',
+                    message: 'El usuario no existe, por favor regístrese',
                     success: false
                 })
             }
@@ -140,7 +140,7 @@ const userController = {
                 if (from === "form") {
                     if (userPass.length > 0) {
                         const loginUser = {
-                            id: user._id,
+                            _id: user._id,
                             firstName: user.firstName,
                             lastName: user.lastName,
                             photo: user.photo,
@@ -159,7 +159,7 @@ const userController = {
                         await user.save()
 
                         res.status(200).json({
-                            message: 'Login Success',
+                            message: 'Inicio de sesión exitoso',
                             success: true,
                             response: {
                                 user: loginUser,
@@ -169,7 +169,7 @@ const userController = {
                     } else {
 
                         res.status(400).json({
-                            message: 'Login Failed, please check your email and password',
+                            message: 'Fallo en el inicio de sesión, por favor, compruebe su correo electrónico y contraseña',
                             success: false
                         })
                     }
@@ -178,7 +178,7 @@ const userController = {
                     if (userPass.length > 0) {
                         user.logged = true
                         const loginUser = {
-                            id: user._id,
+                            _id: user._id,
                             firstName: user.firstName,
                             lastName: user.lastName,
                             photo: user.photo,
@@ -193,7 +193,7 @@ const userController = {
                         }
                         await user.save()
                         res.status(200).json({
-                            message: 'Login Success from Google',
+                            message: 'Iniciar sesión con éxito desde Google',
                             success: true,
                             response: {
                                 user: loginUser,
@@ -202,7 +202,7 @@ const userController = {
                         })
                     } else {
                         res.status(404).json({
-                            message: 'Login Failed, please check your password',
+                            message: 'Fallo en el inicio de sesión, por favor compruebe su contraseña',
                             success: false
                         })
                     }
@@ -210,7 +210,7 @@ const userController = {
             }
             else {
                 res.status(401).json({
-                    message: 'Login Failed, please verify your email',
+                    message: 'Fallo en el inicio de sesión, por favor verifique su correo electrónico',
                     success: false
                 })
             }
@@ -309,15 +309,15 @@ const userController = {
             if (user) {
                 const updateProfile = await User.findByIdAndUpdate(id, newDataProfile)
                 res.status(200).json({
-                    message: updateProfile.name + ': Your Profile Has Been UpDated',
-                    succes: true
+                    message: 'Tu perfil se ha actualizado',
+                    success: true
                 })
             }
         } catch (error) {
             console.log(error)
             res.status(400).json({
                 message: error.message,
-                succes: false
+                success: false
             })
         }
     },

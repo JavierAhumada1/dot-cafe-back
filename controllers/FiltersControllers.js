@@ -52,7 +52,8 @@ const FiltersCoffee = {
                 name: item.name,
                 photo: item.photo,
                 _id: item._id,
-                price: item.price
+                price: item.price,
+                description: item.description,
             }))
             if(all.length > 0){
                 res.status(200).json({
@@ -64,7 +65,31 @@ const FiltersCoffee = {
         } catch (error) {
             console.log(error)
         }
-    }
+    },
+    readOne: async (req, res) => {
+        const { id } = req.params
+        try{
+            let filter = await Filters.findOne({ _id: id })
+            if(filter) {
+                res.status(200).json({
+                    message: 'Filtro encontrad',
+                    response: filter,
+                    success: true
+                })
+            } else {
+                res.status(404).json({
+                    message: 'Filtro no encontrado',
+                    success: false
+                })
+            }
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({
+                message: 'Error',
+                success: false
+            })
+        }
+    },
 }
 
 module.exports = FiltersCoffee
