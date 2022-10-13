@@ -69,7 +69,31 @@ const coffeeMachine = {
         } catch (error) {
             console.log(error)
         }
-    }
+    },
+    readOne: async (req, res) => {
+        const { id } = req.params
+        try{
+            let cofMachine = await CoffeeMachines.findOne({ _id: id })
+            if(cofMachine) {
+                res.status(200).json({
+                    message: 'Maquina encontrada',
+                    response: cofMachine,
+                    success: true
+                })
+            } else {
+                res.status(404).json({
+                    message: 'Maquina no encontrada',
+                    success: false
+                })
+            }
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({
+                message: 'Error',
+                success: false
+            })
+        }
+    },
 }
 
 module.exports = coffeeMachine
